@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Countdown</title>
 
   <style>
     * {
@@ -40,7 +41,6 @@
           var now = new Date();
           var distance = end - now;
           if (distance < 0) {
-
               clearInterval(timer);
               document.getElementById('countdown').innerHTML = 'EXPIRED!';
               return;
