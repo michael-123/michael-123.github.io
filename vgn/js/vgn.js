@@ -21,7 +21,7 @@ function searchForHaltestelle(haltestelle) {
     history.pushState("", "", "#query=" + encodeURI(haltestelle));
 
     $.ajax({
-        url: 'http://start.vag.de/dm/api/haltestellen.json/vgn?name=' + haltestelle,
+        url: 'https://start.vag.de/dm/api/haltestellen.json/vgn?name=' + haltestelle,
         dataType: 'jsonp',
         success: function (data) {
             processHaltestellen(data);
@@ -56,7 +56,7 @@ function createLinkForHaltestelle(haltestelle) {
 
 function getAbfahrtsplan(haltestellenID) {
     $.ajax({
-        url: 'http://start.vag.de/dm/api/abfahrten.json/vgn/' + haltestellenID,
+        url: 'https://start.vag.de/dm/api/abfahrten.json/vgn/' + haltestellenID,
         dataType: 'jsonp',
         success: function (data) {
             processAbfahrtsplan(data);
