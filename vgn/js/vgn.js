@@ -26,9 +26,9 @@ function searchForHaltestelle(haltestelle) {
         success: function (data) {
             processHaltestellen(data);
         },
-        error: function () {
-            alert('Failed!');
-        }
+        error: function(xhr, textStatus, errorThrown){
+		   alert(textStatus);
+		}
     });
 }
 
