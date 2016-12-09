@@ -1,51 +1,31 @@
-// Wird aufgerufen, sobald das Dokument geladen wurde.
-$(document).ready(function () {
-    init();
-});
+function processHaltestellen(json) {
+    // Clear former results
+    $("#haltestellenListe").empty();
+    $("#abfahrtenListe").empty();
 
-function init() {
-    $("#searchButton").click(processSearch);
-    $("#searchForm").submit(function (event) {
-        event.preventDefault();
-        processSearch();
-    });
-
-    processDeepLink();
+    // Print results
+    for (var i = 0; i < json.Haltestellen.length; i++) {
+        createLinkForHaltestelle(json.Haltestellen[i]);
+    }
+    removeLoadingIcon();
 }
 
-function processDeepLink(){
-  var search = decodeURIComponent(window.location.search.substring(1))
-  var searchParameters = search.split("&");
-  var id = undefined;
-  var query = undefined;
-
-  for(var i = 0; i < searchParameters.length; i++){
-    var searchParameter = searchParameters[i].split("=");
-    if(searchParameter[0] === "id"){
-      id = searchParameter[1];
-    }
-    if(searchParameter[0] === "query"){
-      query = searchParameter[1];
-    }
-  }
-
-  if(query != undefined){
-    $("#searchField").val(query);
-    processSearch();
-  }
-  if(id != undefined){
-    getAbfahrtsplan(id);
-  }
-}
-
-function processSearch() {
-    var query = $("#searchField").val();
-    searchForHaltestelle(query);
+function createLinkForHaltestelle(haltestelle) {
+    var name = haltestelle.Haltestellenname;
+    var id = haltestelle.VGNKennung;
+    $("#haltestellenListe").append("<button class='btn btn-haltestelle' id=\"haltestelle" + id + "\">" + name + "</button>");
+    $("#haltestelle" + id).click(
+        function () {
+            showLoadingIcon();
+            getAbfahrtsplan(id);
+        }
+    );
 }
 
 function searchForHaltestelle(haltestelle) {
     // Update URL
-    history.pushState("", "", "?query=" + encodeURI(haltestelle));
+    history.pushState("", "", "?query=" + encodeURIComponent(haltestelle));
+    document.title = "VGN - " + decodeURIComponent(haltestelle);
 
     $.ajax({
         url: 'https://start.vag.de/dm/api/haltestellen.json/vgn?name=' + haltestelle,
@@ -59,46 +39,14 @@ function searchForHaltestelle(haltestelle) {
     });
 }
 
-function processHaltestellen(json) {
-    // Clear former results
-    $("#haltestellenListe").empty();
-    $("#abfahrtenListe").empty();
-
-    // Print results
-    for (var i = 0; i < json.Haltestellen.length; i++) {
-        createLinkForHaltestelle(json.Haltestellen[i]);
-    }
-}
-
-function createLinkForHaltestelle(haltestelle) {
-    var name = haltestelle.Haltestellenname;
-    var id = haltestelle.VGNKennung;
-    $("#haltestellenListe").append("<button class='btn btn-haltestelle' id=\"haltestelle" + id + "\">" + name + "</button>");
-    $("#haltestelle" + id).click(
-        function () {
-            getAbfahrtsplan(id);
-        }
-    );
-}
-
-function getAbfahrtsplan(haltestellenID) {
-    $.ajax({
-        url: 'https://start.vag.de/dm/api/abfahrten.json/vgn/' + haltestellenID,
-        dataType: 'jsonp',
-        success: function (data) {
-            processAbfahrtsplan(data);
-        },
-        error: function () {
-            alert('Failed!');
-        }
-    });
-}
-
 function processAbfahrtsplan(json) {
+    removeLoadingIcon();
+
     // Update query
-    var haltestellenID = encodeURI(json.VGNKennung);
-    var haltestelle = encodeURI(json.Haltestellenname);
+    var haltestellenID = encodeURIComponent(json.VGNKennung);
+    var haltestelle = encodeURIComponent(json.Haltestellenname);
     history.pushState("", "", "?query=" + haltestelle + "&id=" + haltestellenID);
+    document.title = "VGN - " + decodeURIComponent(haltestelle);
 
     // Print results
     $("#abfahrtenListe").empty();
@@ -122,6 +70,33 @@ function createEntryForAbfahrt(abfahrt) {
         "<span class='soll'>" + formatDate(abfahrtSoll) + "</span>" +
         "<span class='ist'>" + verspaetung + "</span>" +
         "</span>");
+}
+
+function getAbfahrtsplan(haltestellenID) {
+    $.ajax({
+        url: 'https://start.vag.de/dm/api/abfahrten.json/vgn/' + haltestellenID,
+        dataType: 'jsonp',
+        success: function (data) {
+            processAbfahrtsplan(data);
+        },
+        error: function () {
+            alert('Failed!');
+        }
+    });
+}
+
+function showLoadingIcon(){
+  $(".inner").first().append("<img id='loading_icon' src='load.gif' style='width: 16px; height: 16px;' />");
+}
+
+function removeLoadingIcon(){
+  $("#loading_icon").remove();
+}
+
+function processSearch() {
+    showLoadingIcon();
+    var query = $("#searchField").val();
+    searchForHaltestelle(query);
 }
 
 function formatDate(date) {
@@ -162,3 +137,48 @@ function parseDate(dateString) {
     // Format: 2016-11-09T17:18:00+01:00
     return new Date(dateString);
 }
+
+
+function processDeepLink(){
+  var search = decodeURIComponent(window.location.search.substring(1))
+  var searchParameters = search.split("&");
+  var id = undefined;
+  var query = undefined;
+
+  for(var i = 0; i < searchParameters.length; i++){
+    var searchParameter = searchParameters[i].split("=");
+    if(searchParameter[0] === "id"){
+      id = searchParameter[1];
+    }
+    if(searchParameter[0] === "query"){
+      query = searchParameter[1];
+      document.title = "VGN - " + decodeURIComponent(query);
+    }
+  }
+
+  if(query != undefined){
+    $("#searchField").val(query);
+    processSearch();
+  }
+  if(id != undefined){
+    getAbfahrtsplan(id);
+  }
+}
+
+
+function init() {
+  $("#searchButton").click(processSearch);
+  $("#searchField").keypress(function (e) {
+    if (e.which == 13) {
+      processSearch();
+      return false;    //<---- Add this line
+    }
+  });
+  processDeepLink();
+}
+
+
+// Wird aufgerufen, sobald das Dokument geladen wurde.
+$(document).ready(function () {
+    init();
+});
