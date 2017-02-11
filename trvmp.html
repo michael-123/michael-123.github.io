@@ -4,10 +4,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Be great - be like Trump!</title>
+	<style>
+
+		/* Make it a marquee */
+		.marquee {
+		    width: 100%;
+		    margin: 0 auto;
+		    overflow: hidden;
+		    white-space: nowrap;
+		    box-sizing: border-box;
+		    animation: marquee 10s linear infinite;
+		}
+
+		.marquee:hover {
+		    animation-play-state: paused
+		}
+
+		/* Make it move */
+		@keyframes marquee {
+		    0%   { text-indent: 100% }
+		    100% { text-indent: -30em }
+		}
+	</style>
 </head>
 
 <body>
-	<h1>Who is the real Donald J. Trump?</h1>
+	<h1 class="marquee">Who is the real Donald J. Trump?</h1>
 	<iframe style="width: 100%;" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubhtml?gid=1859972974&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 	<ul>
 		<li><a href="https://goo.gl/forms/mFonzRzxQXYeKeEp1">Formular</a></li>
