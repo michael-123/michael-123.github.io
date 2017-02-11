@@ -5,34 +5,68 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Be great - be like Trump!</title>
 	<style>
+		h1 { font-size: 400% }
+		h1 img {
+			height: 1em; 
+			margin: 0.2em 0em -0.2em 0em;
+		}
+
+		iframe { width: 100% }
+	
+		/* Marquee */
 		/* see: http://jsfiddle.net/jonathansampson/XxUXD/ */
 		.marquee {
-		    width: 100%;
-		    margin: 0 auto;
-		    overflow: hidden;
-		    white-space: nowrap;
-		    box-sizing: border-box;
-		    animation: marquee 10s linear infinite;
+			width: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+			white-space: nowrap;
+			box-sizing: border-box;
+			animation: marquee 10s linear infinite;
 		}
 		.marquee:hover {
-		    animation-play-state: paused
+			animation-play-state: paused
 		}
 		@keyframes marquee {
-		    0%   { text-indent: 100% }
-		    100% { text-indent: -30em }
+			0%   { text-indent: 100% }
+			100% { text-indent: -25em }
 		}
 	</style>
 </head>
 
 <body>
-	<h1 class="marquee">Who is the real Donald J. Trump?</h1>
-	<iframe style="width: 100%;" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubhtml?gid=1859972974&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+	<h1 class="marquee">
+		<span>Who is the real Donald J. Trump?</span>
+		<img id="emoji" src="#" alt="" />
+	</h1>
+	<iframe src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubhtml?gid=1859972974&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 	<ul>
-		<li><a href="https://goo.gl/forms/mFonzRzxQXYeKeEp1">Formular</a></li>
+		<li>
+			<a href="https://goo.gl/forms/mFonzRzxQXYeKeEp1">Formular</a>
+		</li>
 		<li>
 			<a href="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/edit?usp=sharing">Alle Ergebnisse</a><br>
 		</li>
 	</ul>
+	<script>
+		function getRandomEmojiURL() {
+			// see: http://www.trumpoji.com/presskit/
+			var array = Array(
+				'http://trumpoji.com/images/emojis/sombrero_256.png',
+				'http://trumpoji.com/images/emojis/turban_256.png',
+				'http://trumpoji.com/images/emojis/yuge_anger_256.png',
+				'http://trumpoji.com/images/emojis/afro_256.png',
+				'http://trumpoji.com/images/emojis/emperor_256.png', 
+				'http://trumpoji.com/images/emojis/peering_256.png', 
+				'http://trumpoji.com/images/emojis/hair_256.png', 
+				'http://trumpoji.com/images/emojis/oompa_loompa_256.png', 
+				'http://www.trumpoji.com/presskit/deal_with_it_512.png', 
+				'http://www.trumpoji.com/presskit/yuge_anger.png', 
+				'http://trumpoji.com/images/emojis/clown_256.png');
+			var item = array[Math.floor(Math.random() * array.length)];
+			return item;
+		}
+		document.getElementById("emoji").src = getRandomEmojiURL();
+	</script>
 </body>
 
 </html> 
