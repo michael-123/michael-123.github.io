@@ -1,79 +1,61 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<link rel="apple-touch-icon" href="trvmp_images/trvmp_icon.png"/>
-	<link rel="shortcut icon" href="trvmp_images/trvmp_icon.png">
-	
-	<title>Be great - be like Trump!</title>
-	<style>
-		h1 img {
-			height: 1em; 
-			margin: 0.2em 0em -0.2em 0em;
-		}
 
-		iframe {
-			width: 290px;
-		}
-	</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" href="trvmp_images/trvmp_icon.png" />
+    <link rel="shortcut icon" href="trvmp_images/trvmp_icon.png">
+    <script src="trvmp_meta/jquery-3.1.1.js"></script>
+    <script src="trvmp_meta/trvmp.js"></script>
+
+    <title>Be great - be like Trump!</title>
+    <style>
+        h1 img {
+            height: 1em;
+            margin: 0.2em 0em -0.2em 0em;
+        }
+
+        iframe {
+            width: 290px;
+        }
+    </style>
 </head>
 
 <body>
-	<h1>
+    <h1>
 		<span>Who is the real Donald J. Trump?</span>
 		<img id="emoji" src="#" alt="" />
 	</h1>
-	<nav>
-		<ul>
-			<li>
-				<a href="https://goo.gl/forms/mFonzRzxQXYeKeEp1">Formular</a>
-			</li>
-			<li>
-				<a href="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/edit#gid=1789177478">Dashboard (live)</a>
-			</li>
-		</ul>
-	</nav>
-	<hr>
-	<p>
-		<!-- Quote -->
-		<iframe height="245" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubhtml?gid=1859972974&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-		<!-- Games and Goals -->
-		<iframe height="245" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubhtml?gid=221220647&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-
-	</p>
-	<p>
-		<!-- Trend Andi -->	
-		<iframe height="189" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=1166359508&amp;format=interactive"></iframe>
-		<!-- Trend Duni -->
-		<iframe height="189" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=2032484372&amp;format=interactive"></iframe>
-		<!-- Trend Moik -->
-		<iframe height="189" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=802846629&amp;format=interactive"></iframe>
-	</p>
-	<p>
-		<!-- Spielanteil -->
-		<iframe width="355.5" height="344.7208333333333" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=1346588981&amp;format=interactive"></iframe>
-	</p>
-	<script>
-		function getRandomEmojiURL() {
-			// see: http://www.trumpoji.com/presskit/
-			var array = Array(
-				'http://trumpoji.com/images/emojis/sombrero_256.png',
-				'http://trumpoji.com/images/emojis/turban_256.png',
-				'http://trumpoji.com/images/emojis/yuge_anger_256.png',
-				'http://trumpoji.com/images/emojis/afro_256.png',
-				'http://trumpoji.com/images/emojis/emperor_256.png', 
-				'http://trumpoji.com/images/emojis/peering_256.png', 
-				'http://trumpoji.com/images/emojis/hair_256.png', 
-				'http://trumpoji.com/images/emojis/oompa_loompa_256.png', 
-				'http://www.trumpoji.com/presskit/deal_with_it_512.png', 
-				'http://www.trumpoji.com/presskit/yuge_anger.png', 
-				'http://trumpoji.com/images/emojis/clown_256.png');
-			var item = array[Math.floor(Math.random() * array.length)];
-			return item;
-		}
-		document.getElementById("emoji").src = getRandomEmojiURL();
-	</script>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://goo.gl/forms/mFonzRzxQXYeKeEp1">Formular</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/edit#gid=1789177478">Dashboard (live)</a>
+            </li>
+        </ul>
+    </nav>
+    <hr>
+    <p>
+	<iframe style="width: 100%; height: 750px;" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubhtml?gid=1789177478&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        <table id="quote">
+        </table>
+        <table id="alleToreAlleSpiele">
+        </table>
+    </p>
+    <p>
+        <!-- Trend Andi -->
+        <iframe height="189" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=1166359508&amp;format=interactive"></iframe>
+        <!-- Trend Duni -->
+        <iframe height="189" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=2032484372&amp;format=interactive"></iframe>
+        <!-- Trend Moik -->
+        <iframe height="189" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=802846629&amp;format=interactive"></iframe>
+    </p>
+    <p>
+        <!-- Spielanteil -->
+        <iframe width="355.5" height="344.7208333333333" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pubchart?oid=1346588981&amp;format=interactive"></iframe>
+    </p>
 </body>
-
-</html> 
+</html>
