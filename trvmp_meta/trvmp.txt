@@ -1,0 +1,3 @@
+var csvQuote='https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pub?gid=1859972974&single=true&output=csv';
+var csvSpieleTore='https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pub?gid=221220647&single=true&output=csv';
+var csvTrends='https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pub?gid=1058472332&single=true&output=csv';
