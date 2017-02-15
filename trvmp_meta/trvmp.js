@@ -75,10 +75,10 @@ var csvQuote = 'https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wc
 var csvSpieleTore = 'https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pub?gid=221220647&single=true&output=csv';
 
 $(document).ready(function() {
-    getTrumpEmoji()
-    // getCsv(csvQuote, '#quote');
-    // getCsv(csvSpieleTore, '#alleToreAlleSpiele');
     window.setInterval(function(){
       $('#dashboard').attr('src', $('#dashboard').attr('src'));
     }, 60000);
+    window.setInterval(function(){
+        getTrumpEmoji();
+    }, 5000);
 });
