@@ -80,5 +80,5 @@ $(document).ready(function() {
     // getCsv(csvSpieleTore, '#alleToreAlleSpiele');
     window.setInterval(function(){
       $('#dashboard').attr('src', $('#dashboard').attr('src'));
-    }, 5000);
+    }, 60000);
 });
