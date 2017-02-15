@@ -78,7 +78,9 @@ $(document).ready(function() {
     window.setInterval(function(){
       $('#dashboard').attr('src', $('#dashboard').attr('src'));
     }, 60000);
+    
+    getTrumpEmoji();
     window.setInterval(function(){
         getTrumpEmoji();
-    }, 5000);
+    }, 1500);
 });
