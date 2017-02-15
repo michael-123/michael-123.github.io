@@ -78,4 +78,7 @@ $(document).ready(function() {
     getTrumpEmoji()
     // getCsv(csvQuote, '#quote');
     // getCsv(csvSpieleTore, '#alleToreAlleSpiele');
+    window.setInterval(function(){
+      $('#dashboard').attr('src', $('#dashboard').attr('src'));
+    }, 5000);
 });
