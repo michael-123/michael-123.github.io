@@ -1,16 +1,14 @@
 // see: http://www.trumpoji.com/presskit/
 var array = Array(
-    //'http://trumpoji.com/images/emojis/sombrero_256.png',
-    //'http://trumpoji.com/images/emojis/turban_256.png',
     'http://trumpoji.com/images/emojis/yuge_anger_256.png',
-    //'http://trumpoji.com/images/emojis/afro_256.png',
-    //'http://trumpoji.com/images/emojis/emperor_256.png',
-    //'http://trumpoji.com/images/emojis/peering_256.png',
-    //'http://trumpoji.com/images/emojis/hair_256.png',
-    //'http://trumpoji.com/images/emojis/oompa_loompa_256.png',
-    //'http://www.trumpoji.com/presskit/deal_with_it_512.png',
     'http://www.trumpoji.com/presskit/yuge_anger.png',
-    //'http://trumpoji.com/images/emojis/clown_256.png'
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/hair_256.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png'
 );
 
 function getRandomEmojiURL() {
