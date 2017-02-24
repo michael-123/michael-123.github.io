@@ -7,7 +7,6 @@ var array = Array(
     'http://www.trumpoji.com/presskit/yuge_anger.png',
     'http://www.trumpoji.com/presskit/yuge_anger.png',
     'http://www.trumpoji.com/presskit/yuge_anger.png',
-    'http://www.trumpoji.com/presskit/hair_256.png',
     'http://www.trumpoji.com/presskit/yuge_anger.png'
 );
 
