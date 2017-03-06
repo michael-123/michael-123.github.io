@@ -1,19 +1,17 @@
+// see: http://www.trumpoji.com/presskit/
+var array = Array(
+    'http://trumpoji.com/images/emojis/yuge_anger_256.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png',
+    'http://www.trumpoji.com/presskit/yuge_anger.png'
+);
+
 function getRandomEmojiURL() {
-    // see: http://www.trumpoji.com/presskit/
-    var array = Array(
-        'http://trumpoji.com/images/emojis/sombrero_256.png',
-        'http://trumpoji.com/images/emojis/turban_256.png',
-        'http://trumpoji.com/images/emojis/yuge_anger_256.png',
-        'http://trumpoji.com/images/emojis/afro_256.png',
-        'http://trumpoji.com/images/emojis/emperor_256.png',
-        'http://trumpoji.com/images/emojis/peering_256.png',
-        'http://trumpoji.com/images/emojis/hair_256.png',
-        'http://trumpoji.com/images/emojis/oompa_loompa_256.png',
-        'http://www.trumpoji.com/presskit/deal_with_it_512.png',
-        'http://www.trumpoji.com/presskit/yuge_anger.png',
-        'http://trumpoji.com/images/emojis/clown_256.png');
-    var item = array[Math.floor(Math.random() * array.length)];
-    return item;
+    return array[Math.floor(Math.random() * array.length)];
 }
 
 function getTrumpEmoji() {
@@ -74,8 +72,9 @@ var csvQuote = 'https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wc
 
 var csvSpieleTore = 'https://docs.google.com/spreadsheets/d/1ZNQqV-Y1xr0v9RiEc5FEN0Wcg8DrRLSuMiknLF9gT-Y/pub?gid=221220647&single=true&output=csv';
 
-$(document).ready(function() {
-    getTrumpEmoji()
-    // getCsv(csvQuote, '#quote');
-    // getCsv(csvSpieleTore, '#alleToreAlleSpiele');
+$(document).ready(function() {    
+    getTrumpEmoji();
+    window.setInterval(function(){
+        getTrumpEmoji();
+    }, 1500);
 });
