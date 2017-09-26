@@ -18,13 +18,24 @@ function get(file, callback) {
 
 function applyStatJSON(stats) {
     var topTracks = stats['top_list']['top_tracks'];
-    for(var i = 1; i < Object.keys(topTracks).length; i++) {
+    for(var i = 1; i <= Object.keys(topTracks).length; i++) {
         var track = topTracks[i];
-        $(".table-body").append('<tr><td>' + i + 
-                                '</td><td>' + track.artist.name + 
-                                ' - ' + track.name +
-                                '</td><td>' + track.plays + 
-                                '</td></tr>');
+        var row = $('<tr>');
+        $('<td>')
+            .html(i)
+            .appendTo(row);
+        $('<img>')
+            .attr('src', track.album.image_url)
+            .attr('class', 'album-cover')
+            .appendTo($('<td>').appendTo(row));
+        $('<a>')
+            .attr('href',track.spotify_url)
+            .html(track.artist.name + ' - ' + track.name)
+            .appendTo($('<td>').appendTo(row));
+        $('<td>')
+            .html(track.plays)
+            .appendTo(row);
+        $(".table-body").append(row);
     }
 }
 
