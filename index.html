@@ -18,20 +18,21 @@
                 <h1>Hoergewohnheiten</h1>
                 <p>This is some text.</p>
             </header>
-            <nav>
-                <!-- https://www.w3schools.com/bootstrap/bootstrap_buttons.asp -->
-                <button type="button" class="btn">Month</button>
-                <button type="button" class="btn">Year</button>
-                <button type="button" class="btn">All Time</button>
-            </nav>
             <main>
                 <div class="row">
                     <div class="col-sm-8">
                         <section>
-                            <table class="table table-striped">
-                                <tbody class="table-body">
-                                </tbody>
-                            </table>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#top-tracks">Tracks</a></li>
+                                <li><a data-toggle="tab" href="#top-albums">Albums</a></li>
+                                <li><a data-toggle="tab" href="#top-artists">Artists</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="top-tracks" class="tab-pane fade in active">
+                                </div>
+                                <div id="top-albums" class="tab-pane fade in"></div>
+                                <div id="top-artists" class="tab-pane fade in"></div>
+                            </div>
                         </section>
                     </div>
                     <div class="col-sm-4">

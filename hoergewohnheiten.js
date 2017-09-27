@@ -18,7 +18,12 @@ function get(file, callback) {
 
 function applyStatJSON(stats) {
     var topTracks = stats['top_list']['top_tracks'];
-    for(var i = 1; i <= Object.keys(topTracks).length; i++) {
+    var table = $('<table>').attr('class', 'table table-striped');
+    var tableBody = $('<tbody>')
+        .attr('class', 'table-body');
+    tableBody.appendTo(table);
+    table.appendTo($('#top-tracks'));
+    for (var i = 1; i <= Object.keys(topTracks).length; i++) {
         var track = topTracks[i];
         var row = $('<tr>');
         $('<td>')
@@ -35,7 +40,59 @@ function applyStatJSON(stats) {
         $('<td>')
             .html(track.plays)
             .appendTo(row);
-        $(".table-body").append(row);
+        row.appendTo(tableBody);
+    }
+
+    var topArtists = stats['top_list']['top_artists'];
+    var table = $('<table>').attr('class', 'table table-striped');
+    var tableBody = $('<tbody>')
+        .attr('class', 'table-body');
+    tableBody.appendTo(table);
+    table.appendTo($('#top-artists'));
+    for (var i = 1; i <= Object.keys(topArtists).length; i++) {
+        var artist = topArtists[i];
+        var row = $('<tr>');
+        $('<td>')
+            .html(i)
+            .appendTo(row);
+        $('<img>')
+            .attr('src', artist.image_url)
+            .attr('class', 'album-cover')
+            .appendTo($('<td>').appendTo(row));
+        $('<a>')
+            .attr('href', artist.spotify_url)
+            .html(artist.name)
+            .appendTo($('<td>').appendTo(row));
+        $('<td>')
+            .html(artist.plays)
+            .appendTo(row);
+        row.appendTo(tableBody);
+    }   
+
+    var topAlbums = stats['top_list']['top_albums'];
+    var table = $('<table>').attr('class', 'table table-striped');
+    var tableBody = $('<tbody>')
+        .attr('class', 'table-body');
+    tableBody.appendTo(table);
+    table.appendTo($('#top-albums'));
+    for (var i = 1; i <= Object.keys(topAlbums).length; i++) {
+        var album = topAlbums[i];
+        var row = $('<tr>');
+        $('<td>')
+            .html(i)
+            .appendTo(row);
+        $('<img>')
+            .attr('src', album.image_url)
+            .attr('class', 'album-cover')
+            .appendTo($('<td>').appendTo(row));
+        $('<a>')
+            .attr('href', album.spotify_url)
+            .html(album.name)
+            .appendTo($('<td>').appendTo(row));
+        $('<td>')
+            .html(album.plays)
+            .appendTo(row);
+        row.appendTo(tableBody);
     }
 }
 
