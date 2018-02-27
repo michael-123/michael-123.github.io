@@ -16,12 +16,25 @@
         <div class="container">
             <header class="page-header">
                 <h1>Hoergewohnheiten</h1>
-                <p>This is some text.</p>
             </header>
             <main>
                 <div class="row">
                     <div class="col-sm-8">
-                        <section>
+                        <!-- Date Picking -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p>From:</p>
+                                <input type="date">
+                            </div>
+                            <div class="col-sm-4">
+                                <p>To:</p>
+                                <input type="date">
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-primary">Primary</button>
+                            </div>
+                        </div>
+                        <div class="row">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#top-tracks">Tracks</a></li>
                                 <li><a data-toggle="tab" href="#top-albums">Albums</a></li>
@@ -33,10 +46,10 @@
                                 <div id="top-albums" class="tab-pane fade in"></div>
                                 <div id="top-artists" class="tab-pane fade in"></div>
                             </div>
-                        </section>
+                        </div>
                     </div>
                     <div class="col-sm-4">
-                        Asdf.
+                        <ul class="list-group" id="latest-plays"></ul>
                     </div>
                 </div>
             </main>
