@@ -133,7 +133,27 @@ function applyPlays(plays) {
     }
 }
 
+function getUrlAppendix(userName, fromDate, toDate) {
+    urlAppendix = userName
+    if (fromDate != null) {
+        urlAppendix = urlAppendix + '/' + fromDate
+    }
+    if (toDate != null) {
+        urlAppendix = urlAppendix + '/' + toDate
+    }
+    return urlAppendix
+}
+
+function applyData(userName, fromDate, toDate) {
+    urlAppendix = getUrlAppendix(userName, fromDate, toDate)
+    get(BASE_URL+'plays/' + userName, applyPlays)
+    get(BASE_URL+'stats/' + urlAppendix, applyStats)
+}
+
 $(document).ready(function () {
-    get(BASE_URL+'plays/kalr123', applyPlays)
-    get(BASE_URL+'stats/kalr123', applyStats)
+    var url = new URL(window.location.href);
+    var userName = url.searchParams.get('userName')
+    var fromDate = url.searchParams.get('fromDate')
+    var toDate = url.searchParams.get('toDate')
+    applyData(userName, fromDate, toDate)
 });
