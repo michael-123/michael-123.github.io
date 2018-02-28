@@ -144,16 +144,51 @@ function getUrlAppendix(userName, fromDate, toDate) {
     return urlAppendix
 }
 
-function applyData(userName, fromDate, toDate) {
-    urlAppendix = getUrlAppendix(userName, fromDate, toDate)
-    get(BASE_URL+'plays/' + userName, applyPlays)
-    get(BASE_URL+'stats/' + urlAppendix, applyStats)
-}
-
-$(document).ready(function () {
+function applyData() {
     var url = new URL(window.location.href);
     var userName = url.searchParams.get('userName')
     var fromDate = url.searchParams.get('fromDate')
     var toDate = url.searchParams.get('toDate')
-    applyData(userName, fromDate, toDate)
+    $('#from-date').val(fromDate)
+    $('#to-date').val(toDate)
+    $('#user-name').val(userName)
+
+    urlAppendix = getUrlAppendix(userName, fromDate, toDate)
+
+    get(BASE_URL+'plays/' + userName, applyPlays)
+    get(BASE_URL+'stats/' + urlAppendix, applyStats)
+}
+
+function getUrlParametersFromFields() {
+    var userName = $('#user-name').val()
+    var fromDate = $('#from-date').val()
+    var toDate = $('#to-date').val()
+    var urlAppendix = ''
+    if (userName != null) {
+        urlAppendix = urlAppendix + 'userName=' + userName
+    }
+    if (fromDate != null) {
+        urlAppendix = urlAppendix + 'fromDate=' + fromDate
+    }
+    if (toDate != null) {
+        urlAppendix = urlAppendix + 'toDate=' + toDate
+    }
+    return urlAppendix
+}
+
+$(document).ready(function () {
+    $('#submit').click(function() {
+        applyData()
+    })
+    $('#from-date').on('change', function() {
+        window.history.pushState(null, BASE_URL, getUrlParametersFromFields())
+    })
+    $('#to-date').on('change', function() {
+        window.history.pushState(null, BASE_URL, getUrlParametersFromFields())
+    })
+    $('#user-name').on('change', function() {
+        window.history.pushState(null, BASE_URL, getUrlParametersFromFields())
+    })
+
+    applyData()
 });
