@@ -163,15 +163,15 @@ function getUrlParametersFromFields() {
     var userName = $('#user-name').val()
     var fromDate = $('#from-date').val()
     var toDate = $('#to-date').val()
-    var urlAppendix = ''
+    var urlAppendix = '?'
     if (userName != null) {
         urlAppendix = urlAppendix + 'userName=' + userName
     }
     if (fromDate != null) {
-        urlAppendix = urlAppendix + 'fromDate=' + fromDate
+        urlAppendix = urlAppendix + '&fromDate=' + fromDate
     }
     if (toDate != null) {
-        urlAppendix = urlAppendix + 'toDate=' + toDate
+        urlAppendix = urlAppendix + '&toDate=' + toDate
     }
     return urlAppendix
 }
